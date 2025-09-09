@@ -23,10 +23,37 @@
             🎓 Sekolah Menengah Kejuruan unggulan yang mempersiapkan generasi kompeten dan berkarakter untuk masa depan yang cerah
         </p>
         
+        <!-- PPDB Status Indicator -->
+        @php
+            $ppdbOpen = \App\Models\Setting::get('ppdb_status', 'true') === 'true';
+        @endphp
+        
+        @if($ppdbOpen)
+            <div class="bg-green-500/20 border border-green-400 text-green-300 px-6 py-3 rounded-xl mb-8 max-w-md mx-auto">
+                <div class="flex items-center justify-center space-x-2">
+                    <span class="text-2xl">🟢</span>
+                    <span class="font-semibold">PPDB 2024/2025 DIBUKA!</span>
+                </div>
+            </div>
+        @else
+            <div class="bg-red-500/20 border border-red-400 text-red-300 px-6 py-3 rounded-xl mb-8 max-w-md mx-auto">
+                <div class="flex items-center justify-center space-x-2">
+                    <span class="text-2xl">🔴</span>
+                    <span class="font-semibold">PPDB 2024/2025 DITUTUP</span>
+                </div>
+            </div>
+        @endif
+        
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <a href="{{ route('ppdb.create') }}" class="bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300 shine-effect glow-effect">
-                📚 Daftar Sekarang
-            </a>
+            @if($ppdbOpen)
+                <a href="{{ route('ppdb.create') }}" class="bg-yellow-500 text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300 shine-effect glow-effect">
+                    📚 Daftar Sekarang
+                </a>
+            @else
+                <a href="{{ route('ppdb.create') }}" class="bg-gray-600 text-gray-300 px-8 py-4 rounded-xl font-bold text-lg cursor-not-allowed opacity-75">
+                    📚 Pendaftaran Ditutup
+                </a>
+            @endif
             <a href="{{ route('about') }}" class="border-2 border-yellow-500 text-yellow-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-500 hover:text-black transition-all duration-300">
                 ℹ️ Tentang Kami
             </a>
@@ -213,9 +240,18 @@
                 Bergabunglah dengan ribuan siswa yang telah merasakan pendidikan berkualitas di SMK Karya Pembangunan
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="{{ route('ppdb.create') }}" class="bg-black text-yellow-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-900 transform hover:scale-105 transition-all duration-300 shine-effect">
-                    📋 Daftar PPDB
-                </a>
+                @php
+                    $ppdbOpen = \App\Models\Setting::get('ppdb_status', 'true') === 'true';
+                @endphp
+                @if($ppdbOpen)
+                    <a href="{{ route('ppdb.create') }}" class="bg-black text-yellow-400 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-900 transform hover:scale-105 transition-all duration-300 shine-effect">
+                        📋 Daftar PPDB
+                    </a>
+                @else
+                    <span class="bg-gray-700 text-gray-400 px-8 py-4 rounded-xl font-bold text-lg cursor-not-allowed opacity-75">
+                        📋 PPDB Ditutup
+                    </span>
+                @endif
                 <a href="{{ route('contact') }}" class="border-2 border-black text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-black hover:text-yellow-400 transition-all duration-300">
                     📞 Hubungi Kami
                 </a>

@@ -18,10 +18,9 @@ export function NavFooter({
                         <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton
                                 asChild
-                                className="text-gray-400 hover:text-yellow-400 hover:bg-yellow-400/10 transition-all duration-300"
-                                tooltip={{ children: item.title }}
+                                className="text-neutral-600 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-100"
                             >
-                                <a href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3">
+                                <a href={item.href} target="_blank" rel="noopener noreferrer">
                                     {item.icon && <Icon iconNode={item.icon} className="h-5 w-5" />}
                                     <span>{item.title}</span>
                                 </a>

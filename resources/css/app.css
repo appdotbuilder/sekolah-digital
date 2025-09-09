@@ -77,78 +77,75 @@
     }
 }
 
-/* School Color Palette (Global Dark Theme) */
-:root, .light {
-    /* Force dark theme with school colors */
-    --background: #000000; /* Primary black background */
-    --foreground: #FFFFFF; /* White text */
-    --card: #111111; /* Very dark gray for cards */
-    --card-foreground: #FFFFFF; /* White text on cards */
-    --popover: #000000; /* Black popover background */
-    --popover-foreground: #FFFFFF; /* White text in popovers */
-    --primary: #FFD700; /* School primary yellow/gold */
-    --primary-foreground: #000000; /* Black text on yellow */
-    --secondary: #000000; /* Black for secondary elements */
-    --secondary-foreground: #FFFFFF; /* White text on black */
-    --muted: #1F1F1F; /* Dark gray for muted elements */
-    --muted-foreground: #9CA3AF; /* Light gray for muted text */
-    --accent: #FFD700; /* Yellow accent */
-    --accent-foreground: #000000; /* Black text on accent */
-    --destructive: #DC2626; /* School red color */
-    --destructive-foreground: #FFFFFF; /* White text on red */
-    --border: #333333; /* Dark gray borders */
-    --input: #1F1F1F; /* Dark input backgrounds */
-    --ring: #FFD700; /* Yellow focus rings */
-    --chart-1: #FFD700; /* Yellow for charts */
-    --chart-2: #1E40AF; /* Dark blue accent */
-    --chart-3: #DC2626; /* Red accent */
-    --chart-4: #059669; /* Green */
-    --chart-5: #7C3AED; /* Purple */
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.87 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
     --radius: 0.625rem;
-    --sidebar: #000000; /* Black sidebar */
-    --sidebar-foreground: #FFFFFF; /* White sidebar text */
-    --sidebar-primary: #FFD700; /* Yellow sidebar primary */
-    --sidebar-primary-foreground: #000000; /* Black text on yellow */
-    --sidebar-accent: #1F1F1F; /* Dark gray sidebar accent */
-    --sidebar-accent-foreground: #FFFFFF; /* White text on accent */
-    --sidebar-border: #333333; /* Dark gray sidebar borders */
-    --sidebar-ring: #FFD700; /* Yellow focus rings in sidebar */
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.87 0 0);
 }
 
 .dark {
-    /* Same dark theme colors - consistent across all modes */
-    --background: #000000; /* Primary black background */
-    --foreground: #FFFFFF; /* White text */
-    --card: #111111; /* Very dark gray for cards */
-    --card-foreground: #FFFFFF; /* White text on cards */
-    --popover: #000000; /* Black popover background */
-    --popover-foreground: #FFFFFF; /* White text in popovers */
-    --primary: #FFD700; /* School primary yellow/gold */
-    --primary-foreground: #000000; /* Black text on yellow */
-    --secondary: #000000; /* Black for secondary elements */
-    --secondary-foreground: #FFFFFF; /* White text on black */
-    --muted: #1F1F1F; /* Dark gray for muted elements */
-    --muted-foreground: #9CA3AF; /* Light gray for muted text */
-    --accent: #FFD700; /* Yellow accent */
-    --accent-foreground: #000000; /* Black text on accent */
-    --destructive: #DC2626; /* School red color */
-    --destructive-foreground: #FFFFFF; /* White text on red */
-    --border: #333333; /* Dark gray borders */
-    --input: #1F1F1F; /* Dark input backgrounds */
-    --ring: #FFD700; /* Yellow focus rings */
-    --chart-1: #FFD700; /* Yellow for charts */
-    --chart-2: #1E40AF; /* Dark blue accent */
-    --chart-3: #DC2626; /* Red accent */
-    --chart-4: #059669; /* Green */
-    --chart-5: #7C3AED; /* Purple */
-    --sidebar: #000000; /* Black sidebar */
-    --sidebar-foreground: #FFFFFF; /* White sidebar text */
-    --sidebar-primary: #FFD700; /* Yellow sidebar primary */
-    --sidebar-primary-foreground: #000000; /* Black text on yellow */
-    --sidebar-accent: #1F1F1F; /* Dark gray sidebar accent */
-    --sidebar-accent-foreground: #FFFFFF; /* White text on accent */
-    --sidebar-border: #333333; /* Dark gray sidebar borders */
-    --sidebar-ring: #FFD700; /* Yellow focus rings in sidebar */
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.145 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.145 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.985 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(0.439 0 0);
 }
 
 @layer base {
@@ -157,104 +154,6 @@
     }
 
     body {
-        @apply bg-black text-white;
+        @apply bg-background text-foreground;
     }
-
-    /* Force dark theme globally */
-    html {
-        color-scheme: dark;
-    }
-
-    /* Ensure all backgrounds are dark */
-    .bg-white {
-        @apply !bg-gray-900;
-    }
-
-    .bg-gray-50 {
-        @apply !bg-gray-900;
-    }
-
-    .bg-gray-100 {
-        @apply !bg-gray-800;
-    }
-
-    /* Ensure text readability on dark backgrounds */
-    .text-gray-900 {
-        @apply !text-white;
-    }
-
-    .text-gray-800 {
-        @apply !text-gray-100;
-    }
-
-    .text-gray-600 {
-        @apply !text-gray-300;
-    }
-
-    .text-gray-500 {
-        @apply !text-gray-400;
-    }
-}
-
-/* Force dark theme globally for school branding */
-
-/* Animations for smooth user experience */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes glow {
-    0%, 100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
-}
-
-@keyframes glowYellow {
-    0%, 100% { 
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        transform: scale(1);
-    }
-    50% { 
-        box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-        transform: scale(1.05);
-    }
-}
-
-.animate-fade-in {
-    animation: fadeIn 0.6s ease-out;
-}
-
-.animate-slide-up {
-    animation: slideUp 0.8s ease-out;
-}
-
-.hover-glow:hover {
-    animation: glow 2s infinite;
-}
-
-.hover-glow-yellow:hover {
-    animation: glowYellow 2s infinite;
-}
-
-/* Custom scrollbar for dark theme */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1F1F1F;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #FFD700;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #FFC700;
 }

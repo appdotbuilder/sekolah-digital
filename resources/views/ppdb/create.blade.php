@@ -88,6 +88,39 @@
             </p>
         </div>
 
+        @if(session('error'))
+            <div class="bg-red-100 dark:bg-red-800 border border-red-400 dark:border-red-600 text-red-700 dark:text-red-200 px-4 py-3 rounded mb-6">
+                <div class="flex items-center">
+                    <span class="text-xl mr-2">❌</span>
+                    {{ session('error') }}
+                </div>
+            </div>
+        @endif
+
+        @if(isset($is_ppdb_open) && !$is_ppdb_open)
+            <div class="card-elegant rounded-2xl p-8 md:p-12 slide-up text-center">
+                <div class="text-8xl mb-6">🚫</div>
+                <h3 class="text-3xl font-bold text-red-400 mb-4">Pendaftaran PPDB Sedang Ditutup</h3>
+                <p class="text-lg text-gray-300 mb-8">
+                    Maaf, pendaftaran Peserta Didik Baru (PPDB) untuk tahun ajaran ini sedang tidak tersedia. 
+                    Silakan hubungi sekolah atau pantau website ini secara berkala untuk informasi pembukaan pendaftaran selanjutnya.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="{{ route('home') }}" 
+                       class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200">
+                        <span class="mr-2">🏠</span>
+                        Kembali ke Beranda
+                    </a>
+                    
+                    <a href="{{ route('contact') }}" 
+                       class="inline-flex items-center px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg transition-colors duration-200">
+                        <span class="mr-2">📞</span>
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        @else
+
         <div class="card-elegant rounded-2xl p-8 md:p-12 slide-up">
             <form class="space-y-8" x-data="ppdbForm()" @submit.prevent="submitForm">
                 <!-- Personal Information -->
@@ -406,6 +439,7 @@
                 </div>
             </form>
         </div>
+        @endif
     </div>
 </section>
 

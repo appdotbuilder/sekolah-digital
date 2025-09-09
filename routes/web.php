@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ExtracurricularController;
 use App\Http\Controllers\FacilityController;
@@ -50,6 +51,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    
+    // Admin Settings routes
+    Route::prefix('dashboard')->name('admin.')->group(function () {
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+        Route::patch('/settings', [SettingController::class, 'update'])->name('settings.update');
+    });
 });
 
 require __DIR__.'/settings.php';

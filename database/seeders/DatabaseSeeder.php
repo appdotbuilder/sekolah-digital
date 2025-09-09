@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Setting;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,9 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123'),
             'role' => 'admin',
         ]);
+
+        // Create settings
+        Setting::create(['key' => 'ppdb_status', 'value' => 'true']);
 
         // Create sample data
         \App\Models\News::factory(15)->create();

@@ -45,72 +45,67 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
             <Head title="Profile settings" />
 
             <SettingsLayout>
-                <div className="space-y-6 bg-gray-900 p-6 rounded-xl border border-yellow-500/20">
-                    <HeadingSmall title="👤 Informasi Profil" description="Perbarui nama dan alamat email Anda" />
+                <div className="space-y-6">
+                    <HeadingSmall title="Profile information" description="Update your name and email address" />
 
                     <form onSubmit={submit} className="space-y-6">
                         <div className="grid gap-2">
-                            <Label htmlFor="name" className="text-yellow-400 font-medium">Nama Lengkap</Label>
+                            <Label htmlFor="name">Name</Label>
 
                             <Input
                                 id="name"
-                                className="mt-1 block w-full bg-black border-gray-600 text-white focus:border-yellow-400 focus:ring-yellow-400"
+                                className="mt-1 block w-full"
                                 value={data.name}
                                 onChange={(e) => setData('name', e.target.value)}
                                 required
                                 autoComplete="name"
-                                placeholder="Masukkan nama lengkap"
+                                placeholder="Full name"
                             />
 
                             <InputError className="mt-2" message={errors.name} />
                         </div>
 
                         <div className="grid gap-2">
-                            <Label htmlFor="email" className="text-yellow-400 font-medium">Alamat Email</Label>
+                            <Label htmlFor="email">Email address</Label>
 
                             <Input
                                 id="email"
                                 type="email"
-                                className="mt-1 block w-full bg-black border-gray-600 text-white focus:border-yellow-400 focus:ring-yellow-400"
+                                className="mt-1 block w-full"
                                 value={data.email}
                                 onChange={(e) => setData('email', e.target.value)}
                                 required
                                 autoComplete="username"
-                                placeholder="Masukkan alamat email"
+                                placeholder="Email address"
                             />
 
                             <InputError className="mt-2" message={errors.email} />
                         </div>
 
                         {mustVerifyEmail && auth.user.email_verified_at === null && (
-                            <div className="bg-yellow-600/20 border border-yellow-500/30 rounded-lg p-4">
-                                <p className="text-sm text-yellow-300">
-                                    ⚠️ Email Anda belum diverifikasi.{' '}
+                            <div>
+                                <p className="-mt-4 text-sm text-muted-foreground">
+                                    Your email address is unverified.{' '}
                                     <Link
                                         href={route('verification.send')}
                                         method="post"
                                         as="button"
-                                        className="text-yellow-400 underline underline-offset-4 hover:text-yellow-300 transition-colors font-medium"
+                                        className="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
                                     >
-                                        Klik di sini untuk mengirim ulang email verifikasi.
+                                        Click here to resend the verification email.
                                     </Link>
                                 </p>
 
                                 {status === 'verification-link-sent' && (
-                                    <div className="mt-2 text-sm font-medium text-green-400">
-                                        ✅ Link verifikasi baru telah dikirim ke alamat email Anda.
+                                    <div className="mt-2 text-sm font-medium text-green-600">
+                                        A new verification link has been sent to your email address.
                                     </div>
                                 )}
                             </div>
                         )}
 
                         <div className="flex items-center gap-4">
-                            <Button 
-                                disabled={processing}
-                                className="bg-yellow-400 text-black hover:bg-yellow-300 font-semibold px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105"
-                            >
-                                {processing ? '⏳ Menyimpan...' : '💾 Simpan Perubahan'}
-                            </Button>
+                            <Button disabled={processing}>Save</Button>
 
                             <Transition
                                 show={recentlySuccessful}
@@ -119,7 +114,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 leave="transition ease-in-out"
                                 leaveTo="opacity-0"
                             >
-                                <p className="text-sm text-green-400 font-medium">✅ Tersimpan</p>
+                                <p className="text-sm text-neutral-600">Saved</p>
                             </Transition>
                         </div>
                     </form>

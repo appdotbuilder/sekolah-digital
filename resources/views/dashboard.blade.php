@@ -143,7 +143,7 @@
             </button>
 
             <!-- Settings -->
-            <button onclick="quickAction('settings')" class="card-elegant rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 slide-up" style="animation-delay: 0.4s;">
+            <a href="{{ route('admin.settings.index') }}" class="card-elegant rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 slide-up" style="animation-delay: 0.4s;">
                 <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center mx-auto mb-3">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
@@ -151,7 +151,7 @@
                     </svg>
                 </div>
                 <p class="text-yellow-400 font-semibold text-sm">⚙️ Pengaturan</p>
-            </button>
+            </a>
 
             <!-- Reports -->
             <button onclick="quickAction('reports')" class="card-elegant rounded-2xl p-6 text-center hover:scale-105 transition-all duration-300 slide-up" style="animation-delay: 0.5s;">
@@ -349,7 +349,6 @@ function quickAction(action) {
         'ppdb': '📚 Fitur kelola PPDB akan segera hadir!',
         'feedback': '💬 Fitur kelola feedback akan segera hadir!',
         'users': '👥 Fitur kelola user akan segera hadir!',
-        'settings': '⚙️ Fitur pengaturan akan segera hadir!',
         'reports': '📊 Fitur laporan akan segera hadir!'
     };
     
