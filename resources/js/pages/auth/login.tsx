@@ -36,13 +36,13 @@ export default function Login({ status, canResetPassword }: LoginProps) {
     };
 
     return (
-        <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
-            <Head title="Log in" />
+        <AuthLayout title="🔑 Masuk ke Akun Admin" description="Masukkan email dan password untuk mengakses dashboard admin SMA Negeri 1">
+            <Head title="Login Admin" />
 
             <form className="flex flex-col gap-6" onSubmit={submit}>
                 <div className="grid gap-6">
                     <div className="grid gap-2">
-                        <Label htmlFor="email">Email address</Label>
+                        <Label htmlFor="email" className="text-yellow-400 font-medium">Alamat Email</Label>
                         <Input
                             id="email"
                             type="email"
@@ -52,17 +52,18 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             autoComplete="email"
                             value={data.email}
                             onChange={(e) => setData('email', e.target.value)}
-                            placeholder="email@example.com"
+                            placeholder="admin@sman1.sch.id"
+                            className="bg-black border-gray-600 text-white focus:border-yellow-400 focus:ring-yellow-400 placeholder:text-gray-400"
                         />
                         <InputError message={errors.email} />
                     </div>
 
                     <div className="grid gap-2">
                         <div className="flex items-center">
-                            <Label htmlFor="password">Password</Label>
+                            <Label htmlFor="password" className="text-yellow-400 font-medium">Password</Label>
                             {canResetPassword && (
-                                <TextLink href={route('password.request')} className="ml-auto text-sm" tabIndex={5}>
-                                    Forgot password?
+                                <TextLink href={route('password.request')} className="ml-auto text-sm text-yellow-400 hover:text-yellow-300" tabIndex={5}>
+                                    Lupa password?
                                 </TextLink>
                             )}
                         </div>
@@ -74,7 +75,8 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             autoComplete="current-password"
                             value={data.password}
                             onChange={(e) => setData('password', e.target.value)}
-                            placeholder="Password"
+                            placeholder="Masukkan password"
+                            className="bg-black border-gray-600 text-white focus:border-yellow-400 focus:ring-yellow-400 placeholder:text-gray-400"
                         />
                         <InputError message={errors.password} />
                     </div>
@@ -86,25 +88,31 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             checked={data.remember}
                             onClick={() => setData('remember', !data.remember)}
                             tabIndex={3}
+                            className="border-gray-600 data-[state=checked]:bg-yellow-400 data-[state=checked]:border-yellow-400"
                         />
-                        <Label htmlFor="remember">Remember me</Label>
+                        <Label htmlFor="remember" className="text-white">Ingat saya</Label>
                     </div>
 
-                    <Button type="submit" className="mt-4 w-full" tabIndex={4} disabled={processing}>
-                        {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
-                        Log in
+                    <Button 
+                        type="submit" 
+                        className="mt-4 w-full bg-yellow-400 text-black hover:bg-yellow-300 font-semibold py-3 rounded-lg transform hover:scale-105 transition-all duration-300" 
+                        tabIndex={4} 
+                        disabled={processing}
+                    >
+                        {processing && <LoaderCircle className="h-4 w-4 animate-spin mr-2" />}
+                        {processing ? 'Sedang Masuk...' : '🔑 Masuk ke Dashboard'}
                     </Button>
                 </div>
 
-                <div className="text-center text-sm text-muted-foreground">
-                    Don't have an account?{' '}
-                    <TextLink href={route('register')} tabIndex={5}>
-                        Sign up
+                <div className="text-center text-sm text-gray-400">
+                    Belum punya akun admin?{' '}
+                    <TextLink href={route('register')} tabIndex={5} className="text-yellow-400 hover:text-yellow-300 font-medium">
+                        Daftar di sini
                     </TextLink>
                 </div>
             </form>
 
-            {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
+            {status && <div className="mb-4 text-center text-sm font-medium text-green-400 bg-green-400/10 border border-green-400/30 rounded-lg p-3">✅ {status}</div>}
         </AuthLayout>
     );
 }
