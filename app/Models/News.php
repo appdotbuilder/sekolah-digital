@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
  * @property string $title
  * @property string $slug
  * @property string $content
+ * @property string|null $excerpt
  * @property string|null $image
  * @property \Illuminate\Support\Carbon|null $published_at
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -22,6 +23,7 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder|News newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|News query()
  * @method static \Illuminate\Database\Eloquent\Builder|News whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|News whereExcerpt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereImage($value)
@@ -47,6 +49,7 @@ class News extends Model
         'title',
         'slug',
         'content',
+        'excerpt',
         'image',
         'published_at',
     ];
@@ -91,5 +94,19 @@ class News extends Model
     {
         return $query->whereNotNull('published_at')
                     ->where('published_at', '<=', now());
+    }
+
+    /**
+     * Get the excerpt attribute. If not set, generate from content.
+     *
+     * @return string
+     */
+    public function getExcerptAttribute($value)
+    {
+        if ($value) {
+            return $value;
+        }
+
+        return \Illuminate\Support\Str::limit(strip_tags($this->content), 200);
     }
 }

@@ -10,8 +10,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PpdbController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-
 Route::get('/health-check', function () {
     return response()->json([
         'status' => 'ok',
@@ -40,15 +38,17 @@ Route::get('/facilities', [FacilityController::class, 'index'])->name('facilitie
 // PPDB routes
 Route::get('/ppdb', [PpdbController::class, 'create'])->name('ppdb.create');
 Route::post('/ppdb', [PpdbController::class, 'store'])->name('ppdb.store');
+Route::get('/ppdb/success', function () { return view('ppdb.success'); })->name('ppdb.success');
 
 // Feedback routes
 Route::get('/feedback', [FeedbackController::class, 'create'])->name('feedback.create');
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/feedback/success', function () { return view('feedback.success'); })->name('feedback.success');
 
 // Dashboard (Admin area)
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
+        return view('dashboard');
     })->name('dashboard');
 });
 

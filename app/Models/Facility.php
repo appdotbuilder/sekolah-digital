@@ -49,4 +49,31 @@ class Facility extends Model
      * @var string
      */
     protected $table = 'facilities';
+
+    /**
+     * Get the facility icon based on the name.
+     *
+     * @return string
+     */
+    public function getFacilityIcon()
+    {
+        $name = strtolower($this->name);
+        
+        if (str_contains($name, 'lab') || str_contains($name, 'laboratorium')) {
+            if (str_contains($name, 'komputer')) return '💻';
+            if (str_contains($name, 'bahasa')) return '🗣️';
+            return '🔬';
+        }
+        
+        if (str_contains($name, 'perpustakaan') || str_contains($name, 'library')) return '📚';
+        if (str_contains($name, 'olahraga') || str_contains($name, 'sport')) return '⚽';
+        if (str_contains($name, 'aula') || str_contains($name, 'hall')) return '🏛️';
+        if (str_contains($name, 'kantin') || str_contains($name, 'cafeteria')) return '🍽️';
+        if (str_contains($name, 'masjid') || str_contains($name, 'mushola')) return '🕌';
+        if (str_contains($name, 'workshop') || str_contains($name, 'bengkel')) return '🔧';
+        if (str_contains($name, 'kelas') || str_contains($name, 'ruang')) return '🏫';
+        if (str_contains($name, 'parkir') || str_contains($name, 'parking')) return '🅿️';
+        
+        return '🏢';
+    }
 }

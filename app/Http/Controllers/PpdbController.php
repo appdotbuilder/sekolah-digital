@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePpdbRequest;
 use App\Models\Ppdb;
-use Inertia\Inertia;
-
 class PpdbController extends Controller
 {
     /**
@@ -14,7 +12,7 @@ class PpdbController extends Controller
      */
     public function create()
     {
-        return Inertia::render('ppdb/create');
+        return view('ppdb.create');
     }
 
     /**
@@ -24,6 +22,6 @@ class PpdbController extends Controller
     {
         $ppdb = Ppdb::create($request->validated());
 
-        return Inertia::render('ppdb/success');
+        return view('ppdb.success');
     }
 }

@@ -49,4 +49,46 @@ class Extracurricular extends Model
      * @var string
      */
     protected $table = 'extracurriculars';
+
+    /**
+     * Get the category icon for the extracurricular.
+     *
+     * @return string
+     */
+    public function getCategoryIcon()
+    {
+        $icons = [
+            'sports' => '⚽',
+            'arts' => '🎨',
+            'tech' => '💻',
+            'academic' => '📚',
+            'music' => '🎵',
+            'dance' => '💃',
+            'martial_arts' => '🥋',
+            'science' => '🔬',
+        ];
+
+        return $icons[strtolower($this->category ?? 'general')] ?? '🌟';
+    }
+
+    /**
+     * Get the category name for the extracurricular.
+     *
+     * @return string
+     */
+    public function getCategoryName()
+    {
+        $names = [
+            'sports' => 'Olahraga',
+            'arts' => 'Seni',
+            'tech' => 'Teknologi',
+            'academic' => 'Akademik',
+            'music' => 'Musik',
+            'dance' => 'Tari',
+            'martial_arts' => 'Bela Diri',
+            'science' => 'Sains',
+        ];
+
+        return $names[strtolower($this->category ?? 'general')] ?? 'Umum';
+    }
 }
